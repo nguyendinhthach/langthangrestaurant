@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lang Thang Restaurant</title>
+    <link rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        h1 {
+        color: red; /*Màu chữ của thẻ h1 là đỏ */
+        text-align: center; /*Căn giữa nội dung h1 */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  /* Font chữ ưu tiên */
+    }
+
+    /* Menu */
+    .food {
+        display: grid; /*  bật chế độ lưới, cho phép chia layout thành cột/hàng rõ ràng. */
+        align-items: start; /* Căn tất cả phần tử con ở đầu trên */
+        grid-template-columns: 150px 220px 1fr; /* Cột 1 rộng 150px (ảnh) | Cột 2 rộng 220px (tên) | Cột 3 chiếm phần còn lại */
+        gap: 10px 20px; /* Khoảng cách giữa cột và hàng */
+        margin-bottom: 20px; /* Khoảng cách giữa mỗi món ăn */
+    }
+
+    .food img {
+        border-radius: 6px; /* Bo góc ảnh 6px */
+        object-fit: cover; /* Giữ tỷ lệ ảnh và cắt nếu cần để vừa khung */
+    }
+
+    .food h3 {
+        margin: 0; /* Xóa khoảng cách mặc định của h3 */
+        font-size: 18px;  /* Kích thước chữ vừa phải */
+        font-weight: bold; /* In đậm */
+    }
+
+    .food p {
+        margin: 0; /* Xóa khoảng trắng mặc định */
+        line-height: 1.4; /* Giãn dòng vừa đủ để dễ đọc */
+    }
+
+    /* Form đặt món */
+    #order-form form {
+        max-width: 500px; /* Giới hạn chiều rộng tối đa của form là 500px */
+        margin: 0 auto; /* Căn form ra giữa */
+        padding: 15px; /* Khoảng cách bên trong form */
+        border: 1px solid #ddd; /* Viền mỏng màu xám nhạt */
+        border-radius: 8px; /* Bo góc form */
+        background-color: #f9f9f9; /* Nền xám nhạt */
+    }
+
+    #order-form label {
+        display: inline-block;  /* Để set width cho label */
+        width: 280px; /* độ rộng cố định để các input thẳng hàng */
+        vertical-align: top; /* Căn text ở đầu dòng (dùng khi label có nhiều dòng) */
+    }
+
+    .input-number {
+        width: 60px; /* làm ô số ngắn */
+        padding: 3px; /* Khoảng cách giữa nội dung và viền ô */
+    }
+
+    #order-form input[type="checkbox"] {
+        margin-left: 0; /* Xóa khoảng cách mặc định bên trái checkbox */
+    }
+
+    #order-form textarea {
+        width: 100%; /* Chiếm toàn bộ chiều ngang form */
+        resize: vertical;  /* Cho phép thay đổi chiều cao, nhưng không thay đổi chiều ngang */
+    }
+
+    #order-form input[type="submit"] {
+        display: block;       /* Hiển thị dạng block để dùng margin auto */
+        margin: 15px auto 0;  /* Căn giữa (trái & phải auto), thêm khoảng cách trên */
+        background-color: #e74c3c; /* Màu nền nút đỏ */
+        color: white; /* Chữ trắng */
+        padding: 8px 15px; /* Khoảng cách bên trong nút */
+        border: none; /* Xóa viền mặc định */
+        border-radius: 5px; /* Bo góc nút */
+        cursor: pointer; /* Hiện con trỏ bàn tay khi hover */
+    }
+
+    #order-form input[type="submit"]:hover {
+        background-color: #c0392b; /* Khi di chuột, nút đổi sang màu đỏ đậm hơn */
+    }
+
+    /* Footer */
+    footer {
+        text-align: center; /* Căn giữa nội dung footer */
+        margin-top: 30px; /* Khoảng cách phía trên footer */
+        font-size: 14px; /* Kích thước chữ nhỏ hơn */
+        color: #555; /* Màu xám đậm */
+    }
+    
+    </style>
+</head>
+<body>
+    <header>
+        <hr>
+        <img alt="" src="images/restaurant.png" width="100%" height="360">
+        <h1><i>Lang Thang Restaurant</i></h1>
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#order-form">Your Order</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+    <main>
+        <p>
+            Welcome to Lang Thang Restaurant<br>
+            Step into a world of flavors where tradition meets passion.
+            At Lang Thang, every dish is a story — prepared with care, seasoned with love, and served with a warm smile.
+            Whether you’re here for a comforting classic or a new taste adventure, we’re honored to be part of your journey.
+        </p>
+        <section id="menu">
+            <h2>Menu</h2>
+            <article class="food" id="traditional-beef-pho">
+                <img alt="" src="images/traditional-beef-pho.jpg" width="150" height="110">
+                <h3>Traditional Beef Pho - $6.50</h3>
+                <p>
+                    Slow-simmered beef bone broth for 8 hours, served with soft rice noodles, thinly sliced beef, and fresh herbs.
+                </p>
+            </article>
+            <br>
+            <article class="food" id="goi-cuon">
+                <img alt="" src="images/goi-cuon.jpg" width="150" height="110">
+                <h3>Fresh Spring Rolls with Shrimp and Pork - $4.00</h3>
+                <p>
+                    Rice paper rolls filled with boiled shrimp, pork, vermicelli, and herbs; served with sweet fish sauce or peanut dip.
+                </p>
+            </article>
+            <br>
+            <article class="food" id="shaking-beef">
+                <img alt="" src="images/shaking-beef.jpg" width="150" height="110">
+                <h3>Shaking Beef - $9.50</h3>
+                <p>
+                    Tender beef cubes stir-fried with onions, bell peppers, and black pepper sauce; served with fries and salad.
+                </p>
+            </article>
+            <br>
+            <article class="food" id="ca-kho-to">
+                <img alt="" src="images/ca-kho-to.jpg" width="150" height="110">
+                <h3>Clay Pot Braised Fish - $8.00</h3>
+                <p>
+                    Catfish braised in caramel sauce with black pepper and coconut water, served with steamed white rice.
+                </p>
+            </article>
+            <br>
+            <article class="food" id="com-chien">
+                <img alt="" src="images/com-chien.jpg" width="150" height="110">
+                <h3>Yangzhou Fried Rice - $6.00</h3>
+                <p>
+                    Golden fried rice with egg, shrimp, Chinese sausage, peas, and carrots for a flavorful bite.
+                </p>
+            </article>
+            <br>
+            <article class="food" id="lau-hai-san">
+                <img alt="" src="images/lau-hai-san.jpg" width="150" height="110">
+                <h3>Spicy & Sour Seafood Hotpot - $12.00</h3>
+                <p>
+                    Rich broth with lemongrass, chili, and lime; served with fresh shrimp, squid, fish, clams, and noodles.
+                </p>
+            </article>
+            <br>
+            <article class="food" id="ga-mat-ong">
+                <img alt="" src="images/ga-mat-ong.jpeg" width="150" height="110">
+                <h3>Honey Glazed Grilled Chicken - $10.50</h3>
+                <p>
+                    Whole chicken marinated with honey and spices, grilled over charcoal until crispy outside, tender inside.
+                </p>
+            </article>
+            <br>
+            <article class="food" id="tom-chien-toi">
+                <img alt="" src="images/tom-chien-toi.jpg" width="150" height="110">
+                <h3>Tamarind Glazed Prawns - $9.00</h3>
+                <p>
+                   Fresh prawns stir-fried with tangy tamarind sauce, garlic, and a touch of chili.
+                </p>
+            </article>
+            <br>
+        </section>
+        <section id="order-form">
+            <h2>Place Your Order</h2>
+            <form>
+                <label for="pho-order">Traditional Beef Pho: </label>
+                <input id="pho-order" type="number" min="0" class="input-number">
+                <br>
+                <br>
+                <label for="goi-cuon-order">Fresh Spring Rolls with Shrimp and Pork: </label>
+                <input id="goi-cuon-order" type="number" min="0" class="input-number">
+                <br><br>
+                <label for="shaking-beef-order">Shaking Beef: </label>
+                <input id="shaking-beef-order" type="number" min="0" class="input-number">
+                <br><br>
+                <label for="ca-kho-to-order">Clay Pot Braised Fish: </label>
+                <input id="ca-kho-to-order" type="number" min="0" class="input-number">
+                <br><br>
+                <label for="com-chien-order">Yangzhou Fried Rice: </label>
+                <input id="com-chien-order" type="number" min="0" class="input-number">
+                <br><br>
+                <label for="lau-hai-san-order">Spicy & Sour Seafood Hotpot: </label>
+                <input id="lau-hai-san-order" type="number" min="0" class="input-number">
+                <br><br>
+                <label for="ga-mat-ong-order">Honey Glazed Grilled Chicken: </label>
+                <input id="ga-mat-ong-order" type="number" min="0" class="input-number">
+                <br><br>
+                <label for="tom-chien-toi-order">Tamarind Glazed Prawns: </label>
+                <input id="tom-chien-toi-order" type="number" min="0" class="input-number">
+                <br><br>
+                <label for="add-ons">Add-ons:<br>
+                    <input type="checkbox" id="extra-beef"> Extra beef<br>
+                    <input type="checkbox" id="extra-noodles"> Extra noodles<br>
+                    <input type="checkbox" id="extra-rice"> Extra rice<br>
+                    <input type="checkbox" id="blanched-bean-sprouts"> Blanched bean sprouts<br>
+                </label>
+                <br><br>
+                <label for="requests-notes">Special Requests/Notes:</label><br>
+                <textarea id="requests-notes" cols="30" rows="5">
+                </textarea>
+                <br><br>
+                <input type="submit" value="Go To Checkout">
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            Made with love by Thach<i class="fa-solid fa-heart" style="color: #ed0707;"></i>!
+        </p>
+    </footer>
+</body>
+</html>
